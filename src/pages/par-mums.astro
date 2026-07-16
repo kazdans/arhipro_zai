@@ -1,0 +1,334 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { STATS } from '../config';
+
+const values = [
+  {
+    icon: 'inspection',
+    title: 'Tehniska precizitāte',
+    text: 'Mūsu darba pamatā ir normatīvi, aprēķini un pierādīta inženiertehniskā prakse. Kvalitāte nav kompromiss.',
+  },
+  {
+    icon: 'blueprint',
+    title: 'Estētiska vīzija',
+    text: 'Mēs neticam, ka funkcionalitāte un skaistums ir pretēji. Laba arhitektūra apvieno abus.',
+  },
+  {
+    icon: 'management',
+    title: 'Pilna atbildība',
+    text: 'Pavadām projektu no pirmās skices līdz autoruzraudzībai. Jūs zināt, kurš ir atbildīgs par rezultātu.',
+  },
+  {
+    icon: 'nature',
+    title: 'Ilgtspējība',
+    text: 'Energoefektīvi, videi draudzīgi risinājumi, kas saglabā vērtību gadiem ilgi.',
+  },
+];
+---
+
+<BaseLayout
+  title="Par mums"
+  description="ARHITEKTONS — arhitektūras un būvprojektēšanas birojs Jēkabpilī. Iepazīstieties ar mūsu vērtībām, pieeju un komandu, kas veido nākotnes telpas."
+>
+  {/* Hero */}
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow reveal">Par mums</p>
+      <h1 class="page-hero__title reveal">
+        Birojs, kas veido<br /><em class="text-bronze">nākotnes telpas</em>
+      </h1>
+      <p class="lead reveal">
+        ARHITEKTONS ir arhitektūras un būvprojektēšanas birojs Jēkabpilī.
+        Mēs strādājam ar dažāda mēroga projektiem visā Latvijā — no vietējām pašvaldībām
+        līdz privātiem pasūtītājiem. Mūsu pienākums ir pārvērst vīzijas par telpām,
+        kas ir tehniski precīzas, funkcionālas un estētiski pilnvērtīgas.
+      </p>
+    </div>
+  </section>
+
+  {/* Stats */}
+  <section class="about-stats section--tight">
+    <div class="container">
+      <div class="about-stats__grid">
+        {STATS.map((stat, i) => (
+          <div class="about-stat reveal" style={`transition-delay: ${i * 80}ms`}>
+            <span class="about-stat__value">{stat.value}</span>
+            <span class="about-stat__label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Mission */}
+  <section class="mission section">
+    <div class="container">
+      <div class="mission__layout">
+        <div class="mission__left reveal">
+          <p class="eyebrow">Mūsu misija</p>
+          <h2>Telpas, kas kalpo,<br />un saglabā vērtību</h2>
+        </div>
+        <div class="mission__right reveal">
+          <p class="mission__lead">
+            Mēs ticam, ka laba arhitektūra nav greznība — tā ir nepieciešamība.
+            Katra ēka, kura telpa un ikviena teritorija, ko projektējam, atstāj ietekmi
+            uz tiem, kas tajās dzīvo, strādā un pārvietojas. Tāpēc mūsu darbs nekad
+            neaprobežojas tikai ar tehnisko risinājumu — mēs domājam par cilvēkiem,
+            kuri izmantos rezultātu.
+          </p>
+          <p class="mission__text">
+            Mūsu komanda apvieno dažādu specialitāšu ekspertus — arhitektus, inženierus
+            un projektu vadītājus — vienotā darbā. Tas nodrošina, ka katrs projekts
+            tiek izstrādāts visaptveroši, bez plaisām starp vīziju un realizāciju.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Values grid */}
+  <section class="values-page section" style="background:var(--c-bg-elevated);border-block:1px solid var(--c-border-soft);">
+    <div class="container">
+      <div class="section-header section-header--center reveal">
+        <p class="eyebrow eyebrow--center">Kas mūs vada</p>
+        <h2>Mūsu vērtības</h2>
+      </div>
+      <div class="values-grid">
+        {values.map((value, i) => (
+          <div class="value-tile reveal" style={`transition-delay: ${i * 80}ms`}>
+            <span class="value-tile__icon"><Icon name={value.icon} size={28} /></span>
+            <h3 class="value-tile__title">{value.title}</h3>
+            <p class="value-tile__text">{value.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Process approach */}
+  <section class="approach section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">Mūsu pieeja</p>
+        <h2>Kā mēs domājam<br />par katru projektu</h2>
+      </div>
+
+      <div class="approach__list">
+        <div class="approach-item reveal">
+          <span class="approach-item__num">01</span>
+          <div>
+            <h3>Klausīšanās pirms zīmēšanas</h3>
+            <p>Pirms uzzīmējam pirmo līniju, mēs iepazīstam jūsu vajadzības, budžetu un vīziju. Labais projekts sākas ar labu sarunu.</p>
+          </div>
+        </div>
+        <div class="approach-item reveal">
+          <span class="approach-item__num">02</span>
+          <div>
+            <h3>Tehniskā precizitāte kā pamats</h3>
+            <p>Katrs mūsu lēmums balstās uz normatīviem un aprēķiniem. Mēs nedaram neko, ko nevaram pamatlot.</p>
+          </div>
+        </div>
+        <div class="approach-item reveal">
+          <span class="approach-item__num">03</span>
+          <div>
+            <h3>Estētika kā papildu vērtība</h3>
+            <p>Tehniskai precizitātei jābūt skaistai. Mēs meklējam risinājumus, kas apvieno funkcionalitāti un emocionālu iedarbību.</p>
+          </div>
+        </div>
+        <div class="approach-item reveal">
+          <span class="approach-item__num">04</span>
+          <div>
+            <h3>Atbildība līdz galam</h3>
+            <p>Mēs nepazūdam pēc zīmējumu nodošanas. Pavadām projektu līdz autoruzraudzībai un nodošanai ekspluatācijā.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: clamp(8rem, 14vw, 12rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    border-bottom: 1px solid var(--c-border-soft);
+  }
+
+  .page-hero__title {
+    margin: 1.25rem 0 1.75rem;
+  }
+
+  .page-hero__title em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* Stats */
+  .about-stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+
+  .about-stat {
+    text-align: center;
+    padding: 1.5rem;
+    border-right: 1px solid var(--c-border-soft);
+  }
+
+  .about-stat:last-child {
+    border-right: none;
+  }
+
+  .about-stat__value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 500;
+    color: var(--c-bronze);
+    line-height: 1;
+    margin-bottom: 0.6rem;
+  }
+
+  .about-stat__label {
+    font-size: 0.85rem;
+    color: var(--c-text-muted);
+  }
+
+  /* Mission */
+  .mission__layout {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: clamp(3rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .mission__left {
+    position: sticky;
+    top: 120px;
+  }
+
+  .mission__left h2 {
+    margin-top: 1rem;
+  }
+
+  .mission__lead {
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    line-height: 1.7;
+    color: var(--c-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .mission__text {
+    color: var(--c-text-muted);
+    line-height: 1.8;
+  }
+
+  /* Values */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .value-tile {
+    padding: 2rem;
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border-soft);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+  }
+
+  .value-tile:hover {
+    border-color: var(--c-bronze-deep);
+    transform: translateY(-4px);
+  }
+
+  .value-tile__icon {
+    display: inline-flex;
+    width: 56px;
+    height: 56px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--c-bronze-deep);
+    border-radius: var(--radius-md);
+    color: var(--c-bronze);
+    margin-bottom: 1.25rem;
+  }
+
+  .value-tile__title {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .value-tile__text {
+    color: var(--c-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Approach */
+  .approach__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .approach-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--c-border-soft);
+  }
+
+  .approach-item__num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--c-bronze);
+    line-height: 1;
+  }
+
+  .approach-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .approach-item p {
+    color: var(--c-text-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .about-stats__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .about-stat:nth-child(2) {
+      border-right: none;
+    }
+    .mission__layout {
+      grid-template-columns: 1fr;
+    }
+    .mission__left {
+      position: static;
+    }
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .approach__list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+    .about-stat {
+      border-right: none;
+      border-bottom: 1px solid var(--c-border-soft);
+    }
+  }
+</style>

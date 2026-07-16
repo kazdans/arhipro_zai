@@ -1,0 +1,169 @@
+---
+import Icon from '../Icon.astro';
+import services from '../../data/services.json';
+---
+
+<section class="services-preview section" id="pakalpojumi-preview">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">Mūsu pakalpojumi</p>
+      <h2>Pilna cikla risinājumi<br />būvprojektēšanā</h2>
+      <p class="lead">
+        No pirmā projektēšanas uzdevuma līdz autoruzraudzībai būvlaukumā —
+        mēs pavadām katru projektu cauri visiem tā posmiem.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((service, i) => (
+        <a href={`/pakalpojumi#${service.id}`} class="service-card reveal" style={`transition-delay: ${i * 70}ms`}>
+          <div class="service-card__top">
+            <span class="service-card__icon">
+              <Icon name={service.icon} size={28} />
+            </span>
+            <span class="service-card__index">{String(service.order).padStart(2, '0')}</span>
+          </div>
+          <h3 class="service-card__title">{service.title}</h3>
+          <p class="service-card__desc">{service.short}</p>
+          <span class="service-card__link">
+            Uzzināt vairāk
+            <Icon name="arrow-up-right" size={14} />
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <div class="services-cta reveal">
+      <a href="/pakalpojumi" class="btn btn--ghost">
+        Visi pakalpojumi
+        <Icon name="arrow" size={16} />
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .service-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border-soft);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--c-bronze), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.8s var(--ease-out);
+  }
+
+  .service-card:hover {
+    border-color: var(--c-bronze-deep);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .service-card:hover::before {
+    transform: translateX(100%);
+  }
+
+  .service-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-md);
+    color: var(--c-bronze);
+    background: rgba(201, 160, 99, 0.04);
+    transition: all var(--transition-base);
+  }
+
+  .service-card:hover .service-card__icon {
+    background: rgba(201, 160, 99, 0.1);
+    border-color: var(--c-bronze-deep);
+    transform: scale(1.05);
+  }
+
+  .service-card__index {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--c-text-dim);
+  }
+
+  .service-card__title {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+    transition: color var(--transition-fast);
+  }
+
+  .service-card:hover .service-card__title {
+    color: var(--c-bronze);
+  }
+
+  .service-card__desc {
+    font-size: 0.9rem;
+    color: var(--c-text-muted);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-bronze);
+    opacity: 0.8;
+    transition: opacity var(--transition-fast);
+  }
+
+  .service-card:hover .service-card__link {
+    opacity: 1;
+  }
+
+  .services-cta {
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

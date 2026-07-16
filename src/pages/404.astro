@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<BaseLayout title="Lapa nav atrasta" noindex>
+  <section class="not-found">
+    <div class="container">
+      <p class="not-found__code">404</p>
+      <h1 class="not-found__title">Šī lapa neeksistē</h1>
+      <p class="lead">
+        Iespējams, saite ir novecojusi vai lapa ir pārvietota.
+        Atgriezieties sākumlapā vai atrodat vajadzīgo caur navigāciju.
+      </p>
+      <div class="not-found__actions">
+        <a href="/" class="btn btn--primary">
+          <Icon name="arrow" size={16} style="transform: rotate(180deg); display:inline-block;" />
+          Uz sākumlapu
+        </a>
+        <a href="/kontakti" class="btn btn--ghost">Sazināties</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-block: 8rem;
+  }
+
+  .not-found .container {
+    max-width: 640px;
+  }
+
+  .not-found__code {
+    font-family: var(--font-display);
+    font-size: clamp(6rem, 18vw, 12rem);
+    font-weight: 400;
+    color: var(--c-bronze);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .not-found__title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .not-found__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+</style>

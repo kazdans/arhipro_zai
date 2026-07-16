@@ -1,0 +1,50 @@
+[
+  {
+    "id": "jekabpils",
+    "name": "Jēkabpils novads",
+    "type": "pašvaldība",
+    "featured": true
+  },
+  {
+    "id": "krustpils",
+    "name": "Krustpils novads",
+    "type": "pašvaldība",
+    "featured": true
+  },
+  {
+    "id": "livani",
+    "name": "Līvānu novads",
+    "type": "pašvaldība",
+    "featured": true
+  },
+  {
+    "id": "viesite",
+    "name": "Viesītes novads",
+    "type": "pašvaldība",
+    "featured": true
+  },
+  {
+    "id": "mazsalaca",
+    "name": "Mazsalacas novads",
+    "type": "pašvaldība",
+    "featured": true
+  },
+  {
+    "id": "daugavpils",
+    "name": "Daugavpils novads",
+    "type": "pašvaldība",
+    "featured": true
+  },
+  {
+    "id": "valmieras",
+    "name": "Valmieras novads",
+    "type": "pašvaldība",
+    "featured": false
+  },
+  {
+    "id": "privatie-klienti",
+    "name": "Privātie pasūtītāji",
+    "type": "privātais sektors",
+    "featured": false
+  }
+]

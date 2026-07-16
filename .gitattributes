@@ -1,0 +1,12 @@
+# Automātiska līniju beigu pārvaldība
+* text=auto eol=lf
+
+# Binārie faili
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text eol=lf
+*.woff binary
+*.woff2 binary

@@ -1,0 +1,125 @@
+---
+import Icon from './Icon.astro';
+
+const values = [
+  {
+    icon: 'inspection',
+    title: 'Tehniska precizitāte',
+    text: 'Katrs mūsu projekts balstās uz normatīviem, aprēķiniem un pierādītu inženiertehnisko praksi. Nav vietas kompromisiem drošības un kvalitātes jautājumos.',
+  },
+  {
+    icon: 'blueprint',
+    title: 'Estētiska vīzija',
+    text: 'Tehniskai precizitātei jāsatiekas ar arhitektonisku izjūtu. Mūsu mērķis ir telpas, kas ir gan funkcionālas, gan emocionāli iedarbīgas.',
+  },
+  {
+    icon: 'management',
+    title: 'Pilna atbildība',
+    text: 'Pavadām projektu visā tā ciklā — no pirmās skices līdz autoruzraudzībai būvlaukumā. Jūs vienmēr zināt, kurš ir atbildīgs par rezultātu.',
+  },
+];
+---
+
+<section class="values section">
+  <div class="container">
+    <div class="values__layout">
+      <div class="values__intro reveal">
+        <p class="eyebrow">Mūsu pieeja</p>
+        <h2>Tehniska precizitāte,<br />ko vadību mākslinieciska izjūta</h2>
+        <p class="lead">
+          ARHITEKTONS apvieno inženiertehnisko stingrību ar arhitektonisko vīziju.
+          Mēs neticam kompromisam starp funkcionalitāti un estētiku — laba arhitektūra ir abu saplūšana.
+        </p>
+        <a href="/par-mums" class="btn btn--ghost">
+          Vairāk par mums
+          <Icon name="arrow" size={16} />
+        </a>
+      </div>
+
+      <div class="values__list">
+        {values.map((value, i) => (
+          <div class="value-card reveal" style={`transition-delay: ${i * 90}ms`}>
+            <span class="value-card__icon">
+              <Icon name={value.icon} size={24} />
+            </span>
+            <h3 class="value-card__title">{value.title}</h3>
+            <p class="value-card__text">{value.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .values__layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(3rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .values__intro {
+    position: sticky;
+    top: 120px;
+  }
+
+  .values__intro h2 {
+    margin: 1rem 0 1.5rem;
+  }
+
+  .values__intro .btn {
+    margin-top: 1rem;
+  }
+
+  .values__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .value-card {
+    padding: 2rem;
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border-soft);
+    border-left: 2px solid var(--c-bronze-deep);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+  }
+
+  .value-card:hover {
+    border-left-color: var(--c-bronze);
+    transform: translateX(6px);
+    background: var(--c-surface);
+  }
+
+  .value-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: var(--c-bronze);
+    margin-bottom: 1.25rem;
+  }
+
+  .value-card__title {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .value-card__text {
+    color: var(--c-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .values__layout {
+      grid-template-columns: 1fr;
+    }
+    .values__intro {
+      position: static;
+    }
+  }
+</style>

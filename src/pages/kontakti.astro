@@ -1,0 +1,467 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { CONTACT, SOCIAL } from '../config';
+---
+
+<BaseLayout
+  title="Kontakti"
+  description="Sazinieties ar ARHITEKTONS — arhitektūras un būvprojektēšanas biroju Jēkabpilī. Tālrunis, e-pasts, adrese un darba laiks."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow reveal">Kontakti</p>
+      <h1 class="page-hero__title reveal">
+        Pastāstiet mums<br /><em class="text-bronze">par savu ideju</em>
+      </h1>
+      <p class="lead reveal">
+        Vai plānojat būvprojektu, meklējat konsultāciju vai vēlaties uzzināt vairāk par mūsu pakalpojumiem?
+        Sazinieties — mēs atbildēsim vienas darba dienas laikā.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact section--tight">
+    <div class="container">
+      <div class="contact__grid">
+        {/* Contact info */}
+        <div class="contact__info">
+          <div class="contact-block reveal">
+            <span class="contact-block__icon"><Icon name="phone" size={20} /></span>
+            <div>
+              <h3 class="contact-block__title">Tālrunis</h3>
+              <a href={CONTACT.phoneHref} class="contact-block__value">{CONTACT.phone}</a>
+              <p class="contact-block__hint">{CONTACT.hoursWeek}</p>
+            </div>
+          </div>
+
+          <div class="contact-block reveal">
+            <span class="contact-block__icon"><Icon name="mail" size={20} /></span>
+            <div>
+              <h3 class="contact-block__title">E-pasts</h3>
+              <a href={`mailto:${CONTACT.email}`} class="contact-block__value">{CONTACT.email}</a>
+              <a href={`mailto:${CONTACT.email2}`} class="contact-block__value">{CONTACT.email2}</a>
+            </div>
+          </div>
+
+          <div class="contact-block reveal">
+            <span class="contact-block__icon"><Icon name="location" size={20} /></span>
+            <div>
+              <h3 class="contact-block__title">Birojs</h3>
+              <p class="contact-block__value">{CONTACT.address}</p>
+              <p class="contact-block__value">{CONTACT.city}</p>
+              <a href={CONTACT.mapsUrl} target="_blank" rel="noopener" class="contact-block__hint">
+                Atvērt kartē <Icon name="arrow-up-right" size={14} />
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-block reveal">
+            <span class="contact-block__icon"><Icon name="clock" size={20} /></span>
+            <div>
+              <h3 class="contact-block__title">Darba laiks</h3>
+              <p class="contact-block__value">{CONTACT.hoursWeek}</p>
+              <p class="contact-block__hint">{CONTACT.hoursWeekend}</p>
+            </div>
+          </div>
+
+          <a href={SOCIAL.facebook} target="_blank" rel="noopener" class="contact__social reveal">
+            <Icon name="facebook" size={18} />
+            <span>Sekojiet mums Facebook</span>
+            <Icon name="arrow-up-right" size={14} />
+          </a>
+        </div>
+
+        {/* Contact form */}
+        <div class="contact__form-wrap reveal">
+          <form class="contact-form" id="contact-form" data-static>
+            <h2 class="contact-form__title">Sūtīt vaicājumu</h2>
+            <p class="contact-form__hint">Aizpildiet formu, un mēs sazināsimies ar jums.</p>
+
+            <div class="form-row">
+              <label class="form-field">
+                <span class="form-field__label">Vārds *</span>
+                <input type="text" name="name" required placeholder="Jūsu vārds" />
+              </label>
+              <label class="form-field">
+                <span class="form-field__label">Uzvārds</span>
+                <input type="text" name="surname" placeholder="Jūsu uzvārds" />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label class="form-field">
+                <span class="form-field__label">E-pasts *</span>
+                <input type="email" name="email" required placeholder="piemers@epasts.lv" />
+              </label>
+              <label class="form-field">
+                <span class="form-field__label">Tālrunis</span>
+                <input type="tel" name="phone" placeholder="+371 ..." />
+              </label>
+            </div>
+
+            <label class="form-field">
+              <span class="form-field__label">Pakalpojums</span>
+              <select name="service">
+                <option value="">— Izvēlieties pakalpojumu —</option>
+                <option>Projektēšanas uzdevums</option>
+                <option>Būvprojektu izstrāde</option>
+                <option>Apliecinājuma karšu izstrāde</option>
+                <option>Paskaidrojuma rakstu izstrāde</option>
+                <option>Projektu vadība</option>
+                <option>Autoruzraudzība</option>
+                <option>Cits / konsultācija</option>
+              </select>
+            </label>
+
+            <label class="form-field">
+              <span class="form-field__label">Ziņojums *</span>
+              <textarea name="message" rows="5" required placeholder="Pastāstiet par savu projektu..."></textarea>
+            </label>
+
+            <label class="form-consent">
+              <input type="checkbox" name="consent" required />
+              <span>Piekrītu savu datu apstrādei saskaņā ar privātuma politiku, lai atbildētu uz manu vaicājumu. *</span>
+            </label>
+
+            <button type="submit" class="btn btn--primary contact-form__submit">
+              Nosūtīt ziņojumu
+              <Icon name="arrow" size={16} />
+            </button>
+
+            <div class="form-success" id="form-success" hidden>
+              <Icon name="check" size={24} />
+              <div>
+                <h4>Paldies! Ziņojums nosūtīts.</h4>
+                <p>Sazināsimies ar jums vienas darba dienas laikā.</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Map */}
+  <section class="map-section">
+    <div class="container">
+      <div class="map reveal">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=25.8700%2C56.2900%2C25.9100%2C56.3100&layer=mapnik&marker=56.3000%2C25.8900"
+          loading="lazy"
+          title="ARHITEKTONS biroja karte — Madonas iela 27E, Jēkabpils"
+        ></iframe>
+        <div class="map__overlay">
+          <Icon name="location" size={20} />
+          <div>
+            <strong>{CONTACT.address}</strong>
+            <span>{CONTACT.city}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: clamp(8rem, 14vw, 12rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    border-bottom: 1px solid var(--c-border-soft);
+  }
+
+  .page-hero__title {
+    margin: 1.25rem 0 1.75rem;
+  }
+
+  .page-hero__title em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .contact__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+
+  .contact__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-block {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .contact-block__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(--c-bronze-deep);
+    border-radius: var(--radius-md);
+    color: var(--c-bronze);
+    flex-shrink: 0;
+  }
+
+  .contact-block__title {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--c-text-dim);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-block__value {
+    display: block;
+    color: var(--c-text);
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+    transition: color var(--transition-fast);
+  }
+
+  a.contact-block__value:hover {
+    color: var(--c-bronze);
+  }
+
+  .contact-block__hint {
+    color: var(--c-text-muted);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  a.contact-block__hint:hover {
+    color: var(--c-bronze);
+  }
+
+  .contact__social {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border-soft);
+    border-radius: var(--radius-md);
+    color: var(--c-text);
+    font-size: 0.9rem;
+    transition: all var(--transition-base);
+  }
+
+  .contact__social:hover {
+    border-color: var(--c-bronze);
+    color: var(--c-bronze);
+  }
+
+  /* Form */
+  .contact__form-wrap {
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border-soft);
+    border-radius: var(--radius-lg);
+    padding: clamp(2rem, 4vw, 3rem);
+  }
+
+  .contact-form__title {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-form__hint {
+    color: var(--c-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-field {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .form-field__label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--c-text-muted);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.04em;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: var(--c-bg-elevated);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-sm);
+    color: var(--c-text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color var(--transition-fast);
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--c-bronze);
+    background: var(--c-bg);
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: var(--c-text-dim);
+  }
+
+  .form-field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23c9a063' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  .form-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--c-text-muted);
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  .form-consent input {
+    margin-top: 0.2rem;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--c-bronze);
+    flex-shrink: 0;
+  }
+
+  .contact-form__submit {
+    width: 100%;
+  }
+
+  .form-success {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(201, 160, 99, 0.1);
+    border: 1px solid var(--c-bronze);
+    border-radius: var(--radius-md);
+    color: var(--c-bronze);
+  }
+
+  .form-success h4 {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .form-success p {
+    font-size: 0.85rem;
+    color: var(--c-text-muted);
+    margin: 0;
+  }
+
+  /* Map */
+  .map-section {
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .map {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--c-border-soft);
+    height: 420px;
+    filter: grayscale(0.4) invert(0.9) hue-rotate(180deg) brightness(0.85) contrast(0.9);
+  }
+
+  .map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .map__overlay {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: var(--c-bg);
+    border: 1px solid var(--c-bronze-deep);
+    border-radius: var(--radius-md);
+    color: var(--c-bronze);
+    filter: none;
+  }
+
+  .map__overlay strong {
+    display: block;
+    color: var(--c-text);
+    font-size: 0.95rem;
+  }
+
+  .map__overlay span {
+    color: var(--c-text-muted);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 900px) {
+    .contact__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script is:inline define:vars={{ CONTACT }}>
+  // Static (no backend) form: show success state locally.
+  // For production, integrate with Cloudflare Worker / Formspree / similar.
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Fallback: open mail client with prefilled content
+    const data = new FormData(form);
+    const subject = `Vaicājums no mājaslapas — ${data.get('service') || 'Vispārīgs'}`;
+    const body = `Vārds: ${data.get('name')} ${data.get('surname') || ''}
+E-pasts: ${data.get('email')}
+Tālrunis: ${data.get('phone') || '-'}
+
+Ziņojums:
+${data.get('message')}`;
+    window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (success) success.hidden = false;
+    form.reset();
+  });
+</script>

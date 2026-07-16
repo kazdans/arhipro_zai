@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arhitektons.lv/sitemap-index.xml

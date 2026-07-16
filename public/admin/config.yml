@@ -1,0 +1,141 @@
+# ============================================================
+# Sveltia CMS konfigurācija — ARHITEKTONS
+# Saderīga ar Decap CMS / Netlify CMS konfigurācijas formātu
+# ============================================================
+
+# Backend: GitHub (caur GitHub Gateway — lietotājs autentificējas)
+backend:
+  name: github
+  repo: kazdans/arhipro_zai
+  branch: main
+  base_url: https://api.github.com
+  auth_endpoint: ""
+
+# Lokālā izstrāde
+local_backend: false
+
+# Publiskā mape (kur Astro generē izvadi)
+publish_mode: editorial_workflow
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Vietnes URL
+site_url: https://arhitektons.lv
+display_url: https://arhitektons.lv
+logo_url: /favicon.svg
+
+# ============================================================
+# Kolekcijas (satura vienības)
+# ============================================================
+collections:
+  # ---------- PAKALPOJUMI ----------
+  - name: "services"
+    label: "Pakalpojumi"
+    label_singular: "Pakalpojums"
+    description: "Biroja piedāvātie pakalpojumi"
+    folder: "src/data"
+    create: false
+    delete: false
+    format: "json"
+    extension: "json"
+    slug: "{{slug}}"
+    files:
+      - label: "Pakalpojumu saraksts"
+        name: "services"
+        file: "src/data/services.json"
+        fields:
+          - label: "Pakalpojumi"
+            name: "list"
+            widget: "list"
+            fields:
+              - { label: "ID (URL)", name: "id", widget: "string" }
+              - { label: "Kārtas nr.", name: "order", widget: "number" }
+              - { label: "Ikona", name: "icon", widget: "select", options: ["compass", "blueprint", "card", "document", "management", "inspection", "building", "nature"] }
+              - { label: "Virsraksts", name: "title", widget: "string" }
+              - { label: "Īss apraksts", name: "short", widget: "string" }
+              - { label: "Pilns apraksts", name: "description", widget: "text" }
+              - label: "Iezīmes (features)"
+                name: "features"
+                widget: "list"
+                field: { label: "Iezīme", name: "value", widget: "string" }
+              - { label: "Rezultāts", name: "deliverables", widget: "string" }
+
+  # ---------- PROJEKTI ----------
+  - name: "projects"
+    label: "Projekti"
+    label_singular: "Projekts"
+    description: "Realizētie projekti"
+    folder: "src/data"
+    create: false
+    delete: false
+    format: "json"
+    extension: "json"
+    files:
+      - label: "Projektu saraksts"
+        name: "projects"
+        file: "src/data/projects.json"
+        fields:
+          - label: "Projekti"
+            name: "list"
+            widget: "list"
+            fields:
+              - { label: "ID (URL)", name: "id", widget: "string" }
+              - { label: "Kārtas nr.", name: "order", widget: "number" }
+              - { label: "Izcilais", name: "featured", widget: "boolean", default: false }
+              - { label: "Gads", name: "year", widget: "string" }
+              - { label: "Vieta", name: "location", widget: "string" }
+              - { label: "Kategorija", name: "category", widget: "string" }
+              - { label: "Virsraksts", name: "title", widget: "string" }
+              - { label: "Īss apraksts", name: "short", widget: "string" }
+              - { label: "Pilns apraksts", name: "description", widget: "text" }
+              - label: "Darba apjoms"
+                name: "scope"
+                widget: "list"
+                field: { label: "Punkts", name: "value", widget: "string" }
+              - { label: "Pasūtītājs", name: "client", widget: "string" }
+              - { label: "Statuss", name: "status", widget: "select", options: ["Realizēts", "Norisinās", "Plānots"] }
+
+  # ---------- PARTNERI ----------
+  - name: "clients"
+    label: "Partneri"
+    label_singular: "Partneris"
+    description: "Sadarbības partneri un klienti"
+    folder: "src/data"
+    create: false
+    delete: false
+    format: "json"
+    extension: "json"
+    files:
+      - label: "Partneru saraksts"
+        name: "clients"
+        file: "src/data/clients.json"
+        fields:
+          - label: "Partneri"
+            name: "list"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Nosaukums", name: "name", widget: "string" }
+              - { label: "Tips", name: "type", widget: "string" }
+              - { label: "Rādīt sākumlapā", name: "featured", widget: "boolean", default: false }
+
+  # ---------- VIETNES IESTATĪJUMI ----------
+  - name: "settings"
+    label: "Iestatījumi"
+    description: "Vietnes globālie iestatījumi un kontakti"
+    folder: "src/data"
+    create: false
+    delete: false
+    format: "json"
+    extension: "json"
+    files:
+      - label: "Kontakti"
+        name: "contact"
+        file: "src/data/settings.json"
+        fields:
+          - { label: "Tālrunis", name: "phone", widget: "string" }
+          - { label: "E-pasts", name: "email", widget: "string" }
+          - { label: "Adrese", name: "address", widget: "string" }
+          - { label: "Pilsēta", name: "city", widget: "string" }
+          - { label: "Darba laiks", name: "hours", widget: "string" }
+          - { label: "Facebook URL", name: "facebook", widget: "string" }

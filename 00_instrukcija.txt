@@ -1,0 +1,6 @@
+Situācija - Uzņēmumam BRK PROJEKTI SIA mainījušies īpašnieki, tiks mainīts uzņēmuma nosaukums, jauno nosaukumu iesaki ar 3 variantiem sākuma fāzē, pastāv  esošā mājaslapa brkprojekti.lv, tajā ir liela daļa informācijas, kas nepieciešama uzdevuma veikšanai. Esošajai mājaslapai beidzies CMS uzturēšanas termiņš, atjaunināt  negribu.
+Mērķis -  izstrādāt jaunu mājaslapu, ar jauno nosaukumu, jauna brandinga izstrāde. Kā pamatsteku izmantojot Astro + Sveltia CMS, hostēšana notiks uz claudflare workers.dev caur github. Darbības cloudflare veiks lietotājs, tu veic darbības līdz github -ieskaitot.
+Github jāizveido repo arhipro_zai, viss projekts jādokumentē pēc labākās prakses.
+Lietotāja intervēšanu atļauts veikt tikai sākuma fāzē, beigu fāzē iedod instrukcijas kā jānohostē lapa, sveltia instance uz cloudflare jau ir.
+Beigu fāzē arī atskaities par paveikto.
+Uzdevumu došu trijiem AI, tās ir sacensības par labāko dizainu un funkcionalitāti, netaupi resursus! Sliktāko no 3 nākošmēnes neabonēšu.

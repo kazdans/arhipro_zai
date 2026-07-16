@@ -1,0 +1,116 @@
+[
+  {
+    "id": "riekstu-meza-takas",
+    "order": 1,
+    "featured": true,
+    "year": "2022",
+    "location": "Viesīte, Jēkabpils nov.",
+    "category": "Tūrisma infrastruktūra",
+    "title": "Riekstu meža takas izbūve",
+    "short": "Dabas tūrisma taku izbūve ar atpūtas unikālajām zonām Viesītes apkārtnē.",
+    "description": "Projekts ietver dabas tūrisma taku izbūvi, kas ļauj iedzīvotājiem un tūristiem baudīt Viesītes apkārtnes ainavas un dabas vērtības. Taku maršruti iekļauj atpūtas vietas, skatu torņus un informācijas paneļus.",
+    "scope": [
+      "Taku maršrutu plānošana",
+      "Atpūtas zonu izstrāde",
+      "Skatu torņu projekti",
+      "Informācijas infrastruktūra"
+    ],
+    "client": "Viesītes novada pašvaldība",
+    "status": "Realizēts"
+  },
+  {
+    "id": "kontroles-punkta-eka",
+    "order": 2,
+    "featured": true,
+    "year": "2021",
+    "location": "Latgale",
+    "category": "Publiska ēka",
+    "title": "Kontroles punkta ēka",
+    "short": "Funkcionāla un mūsdienīga robežkontroles punkta ēka ar optimālu plānojumu.",
+    "description": "Projektēta mūsdienīga robežkontroles punkta ēka, kas apvieno funkcionālitāti, drošību un vizuālo identitāti. Plānojums optimizēts darba plūsmām un apmeklētāju ērtībām.",
+    "scope": [
+      "Arhitektūras projekts",
+      "Funkcionālais plānojums",
+      "Inženiertehniskie risinājumi",
+      "Drošības prasību ievērošana"
+    ],
+    "client": "Valsts iestāde",
+    "status": "Realizēts"
+  },
+  {
+    "id": "noliktavas-parbuve",
+    "order": 3,
+    "featured": false,
+    "year": "2020",
+    "location": "Jēkabpils",
+    "category": "Rūpnieciska ēka",
+    "title": "Noliktavas pārbūve",
+    "short": " Esošās noliktavas ēkas pārbūve un pielāgošana jaunām funkcijām.",
+    "description": "Projekts paredzēja esošās noliktavas ēkas pārbūvi, lai pielāgotu to jaunām kravu apstrādes vajadzībām. Tika pastiprinātas konstrukcijas, uzlabota energoefektivitāte un atjaunota fasāde.",
+    "scope": [
+      "Konstrukciju pastiprināšana",
+      "Energoefektivitātes uzlabošana",
+      "Fasādes atjaunošana",
+      "Iekštelpu pielāgošana"
+    ],
+    "client": "Privātklients",
+    "status": "Realizēts"
+  },
+  {
+    "id": "apmekletaju-centrs",
+    "order": 4,
+    "featured": true,
+    "year": "2023",
+    "location": "Mazsalaca, Valmieras nov.",
+    "category": "Tūrisma infrastruktūra",
+    "title": "Apmeklētāju centrs",
+    "short": "Dabas parka apmeklētāju centrs — vieta, kur satiekas daba un kultūra.",
+    "description": "Apmeklētāju centrs paredzēts dabas parka viesu apkalpošanai, izstāžu organizēšanai un izglītojošai darbībai. Ēka integrēta ainavā, izmantojot dabīgus materiālus un ilgtspējīgus risinājumus.",
+    "scope": [
+      "Arhitektūras un interjera projekts",
+      "Dabīgu materiālu izmantošana",
+      "Energoefektīvi risinājumi",
+      "Ainavas integrācija"
+    ],
+    "client": "Mazsalacas novada pašvaldība",
+    "status": "Realizēts"
+  },
+  {
+    "id": "liksnas-baznicas-teritorija",
+    "order": 5,
+    "featured": false,
+    "year": "2019",
+    "location": "Līksna, Daugavpils nov.",
+    "category": "Publiska teritorija",
+    "title": "Līksnas baznīcas teritorija",
+    "short": "Vēsturiskas baznīcas apkārtnes sakārtošana un pieejamības uzlabošana.",
+    "description": "Projekta mērķis bija sakārtot Līksnas baznīcas apkārtni, uzlabojot pieejamību, estētisko tēlu un vides kvalitāti. Tika iekļauti gan atpūtas, gan kultūrvēsturiskie elementi.",
+    "scope": [
+      "Teritorijas plānojums",
+      "Apzaļumošana",
+      "Pieejamības risinājumi",
+      "Apkaimības labiekārtošana"
+    ],
+    "client": "Daugavpils novada pašvaldība",
+    "status": "Realizēts"
+  },
+  {
+    "id": "dzivojama-apbuvves-komplekss",
+    "order": 6,
+    "featured": false,
+    "year": "2024",
+    "location": "Jēkabpils",
+    "category": "Dzīvojamā ēka",
+    "title": "Dzīvojamo ēku apbūves komplekss",
+    "short": "Mūsdienīgs dzīvojamo ēku komplekss ar rūpīgi izstrādātu apbūves plānojumu.",
+    "description": "Dzīvojamo ēku apbūves kompleksa projekts, kas apvieno komfortu, funkcionalitāti un ilgtspējīgus risinājumus. Plānojumā iekļautas atpūtas zonas, autostāvvietas un zaļās teritorijas.",
+    "scope": [
+      "Apbūves plānojums",
+      "Arhitektūras projekti",
+      "Koplietošanas teritorijas",
+      "Inženierkomunikācijas"
+    ],
+    "client": "Privātklients",
+    "status": "Realizēts"
+  }
+]

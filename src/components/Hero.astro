@@ -1,0 +1,217 @@
+---
+import Icon from './Icon.astro';
+import { STATS, CONTACT } from '../config';
+---
+
+<section class="hero">
+  {/* Animated background grid */}
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__grid"></div>
+    <div class="hero__glow hero__glow--1"></div>
+    <div class="hero__glow hero__glow--2"></div>
+  </div>
+
+  <div class="container hero__inner">
+    <p class="hero__eyebrow eyebrow">Arhitektūras birojs · Jēkabpils</p>
+    <h1 class="hero__title">
+      Veidojam telpas,<br />
+      <span class="hero__title-accent">kas pārdzīvo laiku</span>
+    </h1>
+    <p class="hero__lead">
+      ARHITEKTONS ir arhitektūras un būvprojektēšanas birojs, kas piedāvā pilna cikla pakalpojumus —
+      no pirmā projektēšanas uzdevuma līdz autoruzraudzībai būvniecības procesā.
+      Mūsu darbs ir pārvērst jūsu vīziju tehniski precīzā un estētiski pilnvērtīgā realitātē.
+    </p>
+
+    <div class="hero__actions">
+      <a href="/pakalpojumi" class="btn btn--primary">
+        Mūsu pakalpojumi
+        <Icon name="arrow" size={16} />
+      </a>
+      <a href="/projekti" class="btn btn--ghost">
+        Skatīt projektus
+      </a>
+    </div>
+
+    <div class="hero__stats">
+      {STATS.map((stat) => (
+        <div class="stat">
+          <span class="stat__value">{stat.value}</span>
+          <span class="stat__label">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">
+    <span class="hero__scroll-text">Ritināt</span>
+    <span class="hero__scroll-line"></span>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 120px;
+    padding-bottom: 4rem;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Technical blueprint grid */
+  .hero__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(201, 160, 99, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(201, 160, 99, 0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+  }
+
+  .hero__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+  }
+
+  .hero__glow--1 {
+    top: 10%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(201, 160, 99, 0.18), transparent 70%);
+  }
+
+  .hero__glow--2 {
+    bottom: -20%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(138, 109, 62, 0.12), transparent 70%);
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 980px;
+  }
+
+  .hero__title {
+    margin: 1.5rem 0 1.75rem;
+  }
+
+  .hero__title-accent {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--c-bronze);
+    position: relative;
+  }
+
+  .hero__lead {
+    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+    line-height: 1.7;
+    color: var(--c-text-muted);
+    max-width: 64ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 4.5rem;
+  }
+
+  /* Stats */
+  .hero__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--c-border-soft);
+    max-width: 800px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .stat__value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 500;
+    color: var(--c-bronze);
+    line-height: 1;
+  }
+
+  .stat__label {
+    font-size: 0.8rem;
+    color: var(--c-text-muted);
+    line-height: 1.4;
+  }
+
+  /* Scroll indicator */
+  .hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 2;
+  }
+
+  .hero__scroll-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--c-text-dim);
+  }
+
+  .hero__scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--c-bronze), transparent);
+    animation: scrollLine 2.4s var(--ease-in-out) infinite;
+  }
+
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  @media (max-width: 900px) {
+    .hero__stats {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero__scroll {
+      display: none;
+    }
+    .hero {
+      min-height: auto;
+      padding-top: 110px;
+    }
+  }
+</style>

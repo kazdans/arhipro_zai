@@ -1,0 +1,98 @@
+[
+  {
+    "id": "projektesanas-uzdevums",
+    "order": 1,
+    "icon": "compass",
+    "title": "Projektēšanas uzdevums",
+    "short": "Būvprojektēšanas sākumpunkts — tehnisku prasību komplekss būvprojekta izstrādei.",
+    "description": "Projektēšanas uzdevums ir dokuments, kurš nosaka būvprojekta izstrādei nepieciešamos sākotnējos datus, būvjamā objekta raksturojumu, tehniskos rādītājus un īpašās prasības. Tas ir pamats, uz kura balstās visa turpmākā projektēšana.",
+    "features": [
+      "Sākotnējo datu apkopošana un analīze",
+      "Būvjamā objekta raksturojuma formulēšana",
+      "Tehnisko rādītāju un prasību noteikšana",
+      "Saskaņošana ar iesaistītajām institūcijām",
+      "Inženiertehnisko un ģeoloģisko datu pieprasīšana"
+    ],
+    "deliverables": "Apstiprināts projektēšanas uzdevums būvvaldē"
+  },
+  {
+    "id": "buvprojektu-izstrade",
+    "order": 2,
+    "icon": "blueprint",
+    "title": "Būvprojektu izstrāde",
+    "short": "Pilna cikla būvprojektēšana — no koncepcijas līdz izpildes dokumentācijai.",
+    "description": "Veicam pilnu būvprojektu izstrādi dažāda tipa un kompleksitātes objektiem — dzīvojamas, publiskas, ražošanas un inženiertehniskās būves. Mūsu komanda nodrošina visu nepieciešamo specialitāšu (arhitektūra, konstrukcijas, inženierkomunikācijas) risinājumus vienā vietā.",
+    "features": [
+      "Arhitektūras un būvkonstrukciju projekti",
+      "Inženiertehnisko risinājumu izstrāde (Ūdens, kanalizācija, siltums, elektro)",
+      "Būvklimatiskā risinājuma aprēķini",
+      "Saskaņošana ar būvvaldi un citām iestādēm",
+      "Būvatļaujas saņemšanas atbalsts"
+    ],
+    "deliverables": "Pilns būvprojekts ar visām sadaļām un zīmējumiem"
+  },
+  {
+    "id": "apliecinajuma-kartis",
+    "order": 3,
+    "icon": "card",
+    "title": "Apliecinājuma karšu izstrāde",
+    "short": "Energoefektivitātes apliecinājuma karti publiskajām un dzīvojamām ēkām.",
+    "description": "Izstrādājam energoefektivitātes apliecinājuma kartes ēkām saskaņā ar Latvijas būvnormatīviem. Dokuments apliecina ēkas energoefektivitātes klasi un ir nepieciešams gan jaunbūvējamām, gan rekonstruējamām ēkām.",
+    "features": [
+      "Ēkas siltumenerģētisko aprēķinu veikšana",
+      "Energoefektivitātes klases noteikšana",
+      "Apliecinājuma kartes noformēšana",
+      "Saskaņošana ar sertificētu ekspertu",
+      "Ieteikumi energoefektivitātes uzlabošanai"
+    ],
+    "deliverables": "Apstiprināta energoefektivitātes apliecinājuma karte"
+  },
+  {
+    "id": "paskaidrojuma-raksti",
+    "order": 4,
+    "icon": "document",
+    "title": "Paskaidrojuma rakstu izstrāde",
+    "short": "Tehniskie paskaidrojumi būvvaldei un citām iestādēm par īpašiem situāciju risinājumiem.",
+    "description": "Sagatavojam paskaidrojuma rakstus situācijās, kad būvprojektā paredzētie risinājumi atšķiras no standarta prasībām vai nepieciešams pamatot atkāpi. Tas ir būtisks dokuments būvvaldes saskaņošanas procesā.",
+    "features": [
+      "Tehniskā risinājuma pamatojums",
+      "Normatīvo aktu analīze",
+      "Atbilsmības novērtējums",
+      "Saskaņošana ar būvvaldi",
+      "Risks un drošības novērtējums"
+    ],
+    "deliverables": "Apstiprināts paskaidrojuma raksts"
+  },
+  {
+    "id": "projektu-vadiba",
+    "order": 5,
+    "icon": "management",
+    "title": "Projektu vadība",
+    "short": "Pilna spektra būvprojektu vadība no idejas līdz nodošanai ekspluatācijā.",
+    "description": "Piedāvājam profesionālu būvprojektu vadību, nodrošinot savlaicīgu, budžeta ietvaros un kvalitatīvu projektu realizāciju. Koordinējam visus iesaistītos — pasūtītāju, izpildītājus, piegādātājus un uzraugošās iestādes.",
+    "features": [
+      "Projekta plānošana un grafiku izstrāde",
+      "Budžeta kontroļe un izmaksu optimizācija",
+      "Izpildītāju koordinācija",
+      "Kvalitātes un termiņu uzraudzība",
+      "Regulāra atskaitošanās pasūtītājam"
+    ],
+    "deliverables": "Sekmīgi realizēts projekts laikā un budžetā"
+  },
+  {
+    "id": "autoruzraudziba",
+    "order": 6,
+    "icon": "inspection",
+    "title": "Autoruzraudzība",
+    "short": "Projekta autora uzraudzība būvniecības procesā — atbilstības kontrolei.",
+    "description": "Veicam autoruzraudzību būvniecības laikā, nodrošinot, ka būvniecība notiek saskaņā ar apstiprināto būvprojektu un būvnormatīviem. Tas ir nepieciešams kvalitātes un drošības garantijas nosacījums.",
+    "features": [
+      "Regulāra būvniecības procesa uzraudzība",
+      "Atbilstības projekta risinājumiem kontroļe",
+      "Konsultācijas būvniecības jautājumos",
+      "Tehnisko risinājumu precizēšana uz vietas",
+      "Autoruzraudzības žurnāla uzturēšana"
+    ],
+    "deliverables": "Objektīvs autoruzraudzības ziņojums un žurnāls"
+  }
+]

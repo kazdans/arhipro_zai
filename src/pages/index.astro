@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServicesGrid from '../components/services/ServicesGrid.astro';
+import ProjectsShowcase from '../components/projects/ProjectsShowcase.astro';
+import ProcessTimeline from '../components/ProcessTimeline.astro';
+import ValuesSection from '../components/ValuesSection.astro';
+import ClientsMarquee from '../components/ClientsMarquee.astro';
+---
+
+<BaseLayout>
+  <Hero />
+  <ServicesGrid />
+  <ProjectsShowcase limit={4} />
+  <ValuesSection />
+  <ProcessTimeline />
+  <ClientsMarquee />
+</BaseLayout>

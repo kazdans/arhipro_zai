@@ -1,0 +1,79 @@
+---
+import clients from '../data/clients.json';
+const featured = clients.filter((c) => c.featured);
+---
+
+<section class="clients section--tight section">
+  <div class="container">
+    <div class="clients__header reveal">
+      <p class="eyebrow eyebrow--center">Sadarbības partneri</p>
+      <h3 class="clients__title">Pašvaldības un organizācijas, kurām uzticas</h3>
+    </div>
+
+    <div class="clients__grid reveal">
+      {featured.map((client) => (
+        <div class="client-chip">
+          <span class="client-chip__mark"></span>
+          <span class="client-chip__name">{client.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients {
+    border-top: 1px solid var(--c-border-soft);
+    background: var(--c-bg-elevated);
+  }
+
+  .clients__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .clients__title {
+    font-size: 1.5rem;
+    color: var(--c-text-muted);
+    font-weight: 400;
+    margin-top: 1rem;
+  }
+
+  .clients__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .client-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.5rem;
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border-soft);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+  }
+
+  .client-chip:hover {
+    border-color: var(--c-bronze-deep);
+    transform: translateY(-2px);
+  }
+
+  .client-chip__mark {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--c-bronze);
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+
+  .client-chip__name {
+    font-size: 0.9rem;
+    color: var(--c-text);
+    font-weight: 500;
+  }
+</style>

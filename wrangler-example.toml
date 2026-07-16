@@ -1,0 +1,17 @@
+# Cloudflare Wrangler konfigurācijas piemērs
+# Nokopējiet kā wrangler.toml un aizpildiet savus datus
+# Skatīt README.md sadaļu "Deployment"
+
+name = "arhitektons"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Static assets (Astro build izvade)
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+
+# Pielāgots domēns (atstājiet komentētu, līdz pievienosiet domēnu Cloudflare)
+# [[routes]]
+# pattern = "arhitektons.lv"
+# custom_domain = true

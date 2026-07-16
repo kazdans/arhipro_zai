@@ -1,0 +1,83 @@
+---
+/**
+ * Logo — ARHITEKTONS zīmola apvienojums: monogramma + vārds.
+ * Bronzas kolonnu/arkas siluets, kas simbolizē arhitektūras pamatus.
+ */
+interface Props {
+  variant?: 'full' | 'mark';
+  class?: string;
+}
+const { variant = 'full', class: className = '' } = Astro.props;
+---
+
+<span class={`logo logo--${variant} ${className}`}>
+  <svg class="logo__mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    {/* Ārējais arkas/rāmis siluets */}
+    <path d="M6 36V16a14 14 0 0 1 28 0v20" stroke="currentColor" stroke-width="1.5" />
+    {/* Vertikālas kolonnas - simetrisks arhitektūras elements */}
+    <line x1="12" y1="36" x2="12" y2="18" stroke="currentColor" stroke-width="1.5" />
+    <line x1="28" y1="36" x2="28" y2="18" stroke="currentColor" stroke-width="1.5" />
+    {/* Centrālais ass / saites */}
+    <line x1="20" y1="36" x2="20" y2="6" stroke="currentColor" stroke-width="1" opacity="0.5" />
+    {/* Bāze - pamats */}
+    <line x1="4" y1="36" x2="36" y2="36" stroke="currentColor" stroke-width="2" />
+    {/* Top akcenta punkts - kompozīcijas kronis */}
+    <circle cx="20" cy="4" r="2" fill="currentColor" />
+  </svg>
+  {variant === 'full' && (
+    <span class="logo__text">
+      <span class="logo__name">ARHITEKTONS</span>
+      <span class="logo__tag">arhitektūra · būvprojekti</span>
+    </span>
+  )}
+</span>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    color: var(--c-text);
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .logo__mark {
+    width: 36px;
+    height: 36px;
+    color: var(--c-bronze);
+    flex-shrink: 0;
+    transition: transform 0.6s var(--ease-out);
+  }
+
+  .logo:hover .logo__mark {
+    transform: rotate(-3deg) scale(1.05);
+  }
+
+  .logo__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .logo__name {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--c-text);
+  }
+
+  .logo__tag {
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--c-text-dim);
+  }
+
+  .logo--mark .logo__mark {
+    width: 32px;
+    height: 32px;
+  }
+</style>
