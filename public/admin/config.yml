@@ -21,8 +21,8 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 # Vietnes URL
-site_url: https://arhitektons.lv
-display_url: https://arhitektons.lv
+site_url: https://arhiprozai.lazdans.workers.dev
+display_url: https://arhiprozai.lazdans.workers.dev
 logo_url: /favicon.svg
 
 # ============================================================

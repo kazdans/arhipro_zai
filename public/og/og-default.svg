@@ -1,0 +1,44 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0b"/>
+      <stop offset="100%" stop-color="#16161a"/>
+    </linearGradient>
+    <linearGradient id="bronze" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c9a063"/>
+      <stop offset="100%" stop-color="#e0b878"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#c9a063" stroke-width="0.5" opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Glow accent -->
+  <circle cx="950" cy="120" r="280" fill="#c9a063" opacity="0.06"/>
+
+  <!-- Logo monogram (ark) -->
+  <g transform="translate(100, 180)">
+    <path d="M0 220V120a70 70 0 0 1 140 0v100" stroke="url(#bronze)" stroke-width="3" fill="none"/>
+    <line x1="30" y1="220" x2="30" y2="130" stroke="#c9a063" stroke-width="3"/>
+    <line x1="110" y1="220" x2="110" y2="130" stroke="#c9a063" stroke-width="3"/>
+    <line x1="70" y1="220" x2="70" y2="65" stroke="#c9a063" stroke-width="2" opacity="0.4"/>
+    <line x1="-10" y1="220" x2="150" y2="220" stroke="#c9a063" stroke-width="4"/>
+    <circle cx="70" cy="55" r="8" fill="#c9a063"/>
+  </g>
+
+  <!-- Brand text -->
+  <text x="290" y="310" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="500" fill="#f5f5f4" letter-spacing="6">ARHITEKTONS</text>
+  <text x="293" y="365" font-family="Arial, sans-serif" font-size="22" fill="#a1a1a2" letter-spacing="3" text-transform="uppercase">arhitektūra · būvprojekti · autoruzraudzība</text>
+
+  <!-- Tagline -->
+  <text x="293" y="450" font-family="Georgia, serif" font-style="italic" font-size="32" fill="#c9a063">Tehniska precizitāte, ko vada mākslinieciska izjūta</text>
+
+  <!-- Bottom accent line -->
+  <rect x="100" y="540" width="1000" height="1" fill="#2a2a2e"/>
+  <text x="100" y="580" font-family="Arial, sans-serif" font-size="16" fill="#6b6b6e" letter-spacing="2">arhiprozai.lazdans.workers.dev · Jēkabpils, Latvija</text>
+  <text x="1100" y="580" font-family="Arial, sans-serif" font-size="16" fill="#6b6b6e" letter-spacing="2" text-anchor="end">SIA ARHITEKTONS</text>
+</svg>

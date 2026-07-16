@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 // Cloudflare Pages (caur Git integrāciju) apkalpo statiskos failus ātri un vienkārši.
 // Ja nākotnē vajadzīga servera loģika (forma, API), var pievienot @astrojs/cloudflare adapteri.
 export default defineConfig({
-  site: 'https://arhitektons.lv',
+  site: 'https://arhiprozai.lazdans.workers.dev',
   output: 'static',
   integrations: [
     sitemap({

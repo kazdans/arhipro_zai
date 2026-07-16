@@ -63,7 +63,7 @@ Pievienojiet vienu mainīgo (lai Astro zinātu galavērta domēnu priekš sitema
 | ------------- | ----- |
 | `NODE_VERSION` | `20` |
 
-> Padoms: ja vēlaties, lai Astro ģenerētu absolūtos URL, iestatiet arī `SITE_URL=https://arhitektons.lv` — bet pašreizējā konfigurācija strādā arī bez tā.
+> Padoms: ja vēlaties, lai Astro ģenerētu absolūtos URL, iestatiet arī `SITE_URL=https://arhiprozai.lazdans.workers.dev` — bet pašreizējā konfigurācija strādā arī bez tā.
 
 5. Spiediet **Save and Deploy**
 
@@ -78,10 +78,10 @@ Pievienojiet vienu mainīgo (lai Astro zinātu galavērta domēnu priekš sitema
 Pēc veiksmīga deploy Cloudflare piešķirs URL formātā:
 
 ```
-https://arhitektons.pages.dev
+https://arhiprozai.lazdans.workers.dev
 ```
 
-(Precīzais subdomēns atkarīgs no Project name — spiediet apakšā uz **Visit site**.)
+(Spiediet apakšā uz **Visit site**, lai atvērtu.)
 
 ---
 
@@ -96,7 +96,7 @@ Tagad **katrs push uz `main` zaru** automātiski izraisīs jaunu deploy:
 
 ## 🌐 Pielāgota domēna piesaiste (pēc izvēles)
 
-Lai vietne būtu pieejama `arhitektons.lv`:
+Lai vietne būtu pieejama `arhitektons.lv` (kad domēns būs reģistrēts):
 
 1. Projektā → **Custom domains** cilne → **Set up a custom domain**
 2. Ievadiet `arhitektons.lv` → **Continue**
@@ -105,14 +105,15 @@ Lai vietne būtu pieejama `arhitektons.lv`:
    - Ja domēns ir **citur** (piem., citā reģistrā) → Cloudflare parādīs DNS ierakstus, kas jāpievieno pie reģistra:
      - Tips: `CNAME`
      - Nosaukums: `@` (vai `www`)
-     - Mērķis: `arhitektons.pages.dev`
+     - Mērķis: `arhiprozai.lazdans.workers.dev`
 4. Atkārtojiet priekš `www.arhitektons.lv`, ja vēlies arī to
+5. **Pēc domēna aktivizācijas** atjauniniet `astro.config.mjs` `site:` un `public/robots.txt` uz jauno domēnu
 
 ---
 
 ## 📝 Sveltia CMS piekļuve pēc deploy
 
-1. Atveriet `https://arhitektons.pages.dev/admin/`
+1. Atveriet `https://arhiprozai.lazdans.workers.dev/admin/`
 2. Spiediet **Sign in with GitHub**
 3. Ja redzat kļūdu par piekļuves tiesībām:
    - Atveriet [github.com/kazdans/arhipro_zai/settings/access](https://github.com/kazdans/arhipro_zai/settings/access)
@@ -167,5 +168,6 @@ Cloudflare Dashboard
           - Build command:        npm run build
           - Build output:         dist
         → Save and Deploy
-          → Pagaidiet 1–2 minūtes → vietne dzīva uz *.pages.dev
+          → Pagaidiet 1–2 minūtes → vietne dzīva uz
+            https://arhiprozai.lazdans.workers.dev
 ```

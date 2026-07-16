@@ -9,7 +9,7 @@ export const SITE = {
   tagline: 'Arhitektūra · Būvprojekti · Autoruzraudzība',
   description:
     'ARHITEKTONS — arhitektūras un būvprojektēšanas birojs. Pilna cikla pakalpojumi: no projektēšanas uzdevuma līdz autoruzraudzībai un projektu vadībai.',
-  url: 'https://arhitektons.lv',
+  url: 'https://arhiprozai.lazdans.workers.dev',
   locale: 'lv-LV',
   lang: 'lv',
   defaultOgImage: '/og/og-default.svg',

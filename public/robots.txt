@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arhitektons.lv/sitemap-index.xml
+Sitemap: https://arhiprozai.lazdans.workers.dev/sitemap-index.xml

@@ -123,7 +123,7 @@ Vietnes saturs tiek glabāts JSON failos mapē `src/data/`. To var rediģēt div
 
 ### 1. Caur CMS administratora paneli (ieteicams)
 
-1. Atveriet `https://arhitektons.lv/admin/` pēc deploy
+1. Atveriet `https://arhiprozai.lazdans.workers.dev/admin/` pēc deploy
 2. Piesakieties ar GitHub kontu (jābūt uzaicinātam)
 3. Rediģējiet pakalpojumus, projektus, partnerus un kontaktus vizuāli
 4. Saglabājiet — izmaiņas automātiski nonāks GitHub un publicēsies
@@ -144,39 +144,29 @@ Vietnes saturs tiek glabāts JSON failos mapē `src/data/`. To var rediģēt div
 
 ---
 
-## ☁️ Hostēšana uz Cloudflare Workers
+## ☁️ Hostēšana uz Cloudflare
 
-> **Svarīgi:** Pirms hostēšanas pārliecinieties, ka `astro.config.mjs` `site` lauks ir iestatīts uz jūsu faktisko domēnu.
+Vietne ir izvietota uz Cloudflare caur **Git integrāciju** (web interfeiss) —
+nav vajadzīgi ne Wrangler, ne GitHub Secrets, ne komandrinda.
 
-### Solis 1 — Cloudflare sagatavošana
+> **Pilnas soli-pa-solim instrukcijas** skatiet failā **[`HOSTING.md`](./HOSTING.md)**.
 
-1. Izveidojiet kontu [cloudflare.com](https://cloudflare.com) (ja nav)
-2. Dashboard → **Workers & Pages**
-3. Atzīmējiet savu **Account ID** (labajā augšējā stūrī)
+**Īsumā:**
+1. Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
+2. Atlasiet GitHub repo `kazdans/arhipro_zai`
+3. Build command: `npm run build`, output: `dist`, preset: **Astro**
+4. Spiediet **Save and Deploy** — pēc 1–2 minūtēm vietne pieejama
 
-### Solis 2 — API Token izveide
+**Pašreizējais URL:** `https://arhiprozai.lazdans.workers.dev`
 
-1. Cloudflare Dashboard → **My Profile** → **API Tokens**
-2. **Create Token** → izvēlieties **"Edit Cloudflare Workers"** šablonu
-3. Saglabājiet Token (redzams tikai vienreiz!)
+Katrs push uz `main` (ieskaitot izmaiņas caur Sveltia CMS) automātiski izveidos jaunu deploy.
 
-### Solis 3 — GitHub Secrets pievienošana
+### Pielāgots domēns (pēc izvēles)
 
-Savā GitHub repo: **Settings → Secrets and variables → Actions → New repository secret**
-
-- `CLOUDFLARE_API_TOKEN` — Token no iepriekšējā soļa
-- `CLOUDFLARE_ACCOUNT_ID` — Account ID no 1. soļa
-
-### Solis 4 — Deploy
-
-Katrs push uz `main` zaru automātiski deploy'o saturu uz Cloudflare.
-Sekojiet **Actions** cilnei GitHub, lai redzētu statusu.
-
-### Solis 5 — Pielāgots domēns (pēc izvēles)
-
-1. Cloudflare Workers → jūsu projekts → **Custom Domains**
-2. Pievienojiet `arhitektons.lv` (vai citu)
-3. Sekojiet DNS norādēm
+Kad vēlies piesaistīt īsto domēnu (piem., `arhitektons.lv`):
+1. Cloudflare projektā → **Custom domains** → pievienojiet domēnu
+2. Pievienojiet DNS `CNAME` ierakstu → `arhiprozai.lazdans.workers.dev`
+3. Pēc tam atjauniniet `astro.config.mjs` `site:` uz jauno domēnu
 
 ---
 
@@ -220,7 +210,7 @@ Lai mainītu zīmola krāsu, rediģējiet `--c-bronze*` vērtības — tas autom
 Pirms deploy pārliecinieties, ka esat mainījuši:
 
 1. **`src/config.ts`** — kontaktdati, telefons, e-pasts, adrese, sociālie tīkli
-2. **`astro.config.mjs`** → `site: 'https://arhitektons.lv'` → jūsu domēns
+2. **`astro.config.mjs`** → `site: 'https://arhiprozai.lazdans.workers.dev'` → jūsu domēns
 3. **`public/admin/config.yml`** → `backend.repo: kazdans/arhipro_zai` → jūsu GitHub repo
 4. **`src/data/settings.json`** — kontakti (sasaistīts ar CMS)
 5. **`public/robots.txt`** → `Sitemap:` URL → jūsu domēns
