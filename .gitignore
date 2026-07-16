@@ -2,6 +2,11 @@
 dist/
 .astro/
 
+# privāti faili (instrukcijas, piezīmes)
+00_instrukcija.txt
+*_instrukcija.txt
+NOTES*
+
 # dependencies
 node_modules/
 
