@@ -3,15 +3,16 @@
 # Saderīga ar Decap CMS / Netlify CMS konfigurācijas formātu
 # ============================================================
 
-# Backend: GitHub (caur GitHub Gateway — lietotājs autentificējas)
+# Backend: GitHub (Sveltia CMS atbalsta iebūvēto GitHub PKCE OAuth)
+# Lietotājs piesakās ar GitHub kontu; jābūt collaborators repo.
 backend:
   name: github
   repo: kazdans/arhipro_zai
   branch: main
   base_url: https://api.github.com
-  auth_endpoint: ""
+  auth_type: pkce
 
-# Lokālā izstrāde
+# Lokālā izstrāde (iekšējai testēšanai)
 local_backend: false
 
 # Publiskā mape (kur Astro generē izvadi)

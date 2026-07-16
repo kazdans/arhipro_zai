@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers konfigurācija ARHITEKTONS vietnei
+  // Šis fails nav jāslēpj — tajā nav sensitīvas informācijas.
+  // API token un Account ID tiek padoti caur GitHub Secrets.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "arhitektons",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist"
+  }
+  // Pielāgots domēns pievienojams pēc deploy Cloudflare dashboardā.
+}
