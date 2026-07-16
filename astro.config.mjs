@@ -2,6 +2,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 // Vietne ir pilnībā statiska — tāpēc nav vajadzīgs SSR adapteris.
 // Cloudflare Pages (caur Git integrāciju) apkalpo statiskos failus ātri un vienkārši.
@@ -9,6 +11,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://arhiprozai.lazdans.workers.dev',
   output: 'static',
+
   integrations: [
     sitemap({
       i18n: {
@@ -17,11 +20,15 @@ export default defineConfig({
       },
     }),
   ],
+
   prefetch: {
     prefetchAll: true,
     defaultStrategy: 'viewport',
   },
+
   image: {
     responsiveStyles: true,
   },
+
+  adapter: cloudflare()
 });
