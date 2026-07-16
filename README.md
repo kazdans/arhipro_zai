@@ -1,10 +1,10 @@
 # ARHITEKTONS — Arhitektūras biroja tīmekļa vietne
 
-> Pilna cikla arhitektūras un būvprojektēšanas biroja tīmekļa vietne, izstrādāta ar **Astro 5** + **Sveltia CMS**, gatava hostēšanai uz **Cloudflare Workers**.
+> Pilna cikla arhitektūras un būvprojektēšanas biroja tīmekļa vietne, izstrādāta ar **Astro 5** + **Sveltia CMS**, gatava hostēšanai uz **Cloudflare Pages**.
 
 ![Stack](https://img.shields.io/badge/Astro-5.x-FF5D01?logo=astro&logoColor=white)
 ![CMS](https://img.shields.io/badge/CMS-Sveltia-4F46E5)
-![Hosting](https://img.shields.io/badge/Hosting-Cloudflare%20Workers-F38020?logo=cloudflare&logoColor=white)
+![Hosting](https://img.shields.io/badge/Hosting-Cloudflare%20Pages-F38020?logo=cloudflare&logoColor=white)
 
 ---
 
@@ -21,7 +21,7 @@
 - 🔍 **SEO optimizēts** — sitemap, OpenGraph, semantiskā HTML, meta tagi
 - ♿ **Pieejams** — atbilst WCAG vadlīnijām, atbalsta tastatūras navigāciju
 - 🌐 **Latviešu valoda** — pilnībā lokalizēta lietotāja saskarne
-- ☁️ **Cloudflare Workers** gatavs — ar GitHub Actions auto-deploy
+- ☁️ **Cloudflare Pages** gatavs — automātisks deploy no GitHub caur Git integrāciju
 
 ---
 
@@ -29,11 +29,10 @@
 
 | Slānis          | Tehnoloģija                                      |
 | --------------- | ------------------------------------------------- |
-| Framework       | [Astro 5](https://astro.build)                    |
+| Framework       | [Astro 5](https://astro.build) (static output)    |
 | Stili           | CSS Custom Properties (vanilla, bez framework)   |
 | CMS             | [Sveltia CMS](https://github.com/sveltia/sveltia-cms) |
-| Hosting         | [Cloudflare Workers](https://workers.cloudflare.com) |
-| Adaptējs        | [@astrojs/cloudflare](https://docs.astro.build/en/guides/integrations-guide/cloudflare/) |
+| Hosting         | [Cloudflare Pages](https://pages.cloudflare.com) (Git integrācija) |
 | Fonti           | Google Fonts (Cormorant Garamond, Inter)         |
 | Versiju kontroļe| Git + GitHub                                       |
 

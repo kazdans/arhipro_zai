@@ -1,79 +1,123 @@
-# 🌐 Hostinga instrukcija — ARHITEKTONS
+# 🌐 Hostinga instrukcija — Cloudflare caur web interfeisu
 
-Šis dokuments satur soli-pa-solim norādes, kā uzhostēt ARHITEKTONS vietni uz **Cloudflare Workers** caur **GitHub Actions**.
+Šis dokuments satur soli-pa-solim norādes, kā uzhostēt ARHITEKTONS vietni uz **Cloudflare Workers/Pages**, savienojot to ar GitHub repo **caur Cloudflare web interfeisu**.
 
-> **Konteksts:** Sveltia CMS instance uz Cloudflare jau ir izveidota. Tāpēc šeit pievēršam uzmanību tikai pašas vietnes deploy.
+Šī ir vienkāršākā metode — **nevajag ne Wrangler, ne komandrindu, ne GitHub Secrets**. Cloudflare pats klonē repo, izveido vietni un automātiski izvieto (deploy) pie katra push uz `main`.
+
+> **Konteksts:** Sveltia CMS instance uz Cloudflare jau ir izveidota (lietotāja ziņā).
 
 ---
 
 ## ✅ Priekšnosacījumi (kas jau ir paveikts)
 
 - ✓ GitHub repo: [github.com/kazdans/arhipro_zai](https://github.com/kazdans/arhipro_zai)
-- ✓ Astro build ir pārbaudīts un strādā (CI: ✓ Build Astro site)
+- ✓ Astro build ir pārbaudīts un strādā lokāli
 - ✓ Wrangler konfigurācija (`wrangler.jsonc`) gatava
-- ✓ GitHub Actions workflow (`.github/workflows/deploy.yml`) gatavs
-- ✓ Sveltia CMS instance uz Cloudflare jau ir izveidota (lietotāja ziņā)
+- ✓ Cloudflare konts eksistē (lietotāja ziņā)
 
 ---
 
 ## 🚀 Soli-pa-solim deploy
 
-### 1. Iegūstiet Cloudflare Account ID
+### 1. Atveriet Cloudflare Dashboard
 
 1. Atveriet [dash.cloudflare.com](https://dash.cloudflare.com)
-2. Labajā augšējā stūrī vai Dashboard sānjoslā atrodiet **Account ID** (32 rakstzīmju hex)
-3. Nokopējiet to — tas būs jāpievieno GitHub Secrets
+2. Piesakieties savā kontā
+3. Kreisajā sānjoslā atlasiet **Workers & Pages**
 
-### 2. Izveidojiet Cloudflare API Token
+### 2. Izveidojiet jaunu projektu
 
-1. Cloudflare Dashboard → **My Profile** ( augšējā labā stūra avatārs) → **API Tokens**
-2. Spiediet **Create Token**
-3. Atrastiet šablonu **"Edit Cloudflare Workers"** un spiediet **Use template**
-4. Atstājiet noklusējuma atļaujas:
-   - Account: **Workers Scripts: Edit**, **Account Settings: Read**
-   - User: **Member Details: Read**
-5. **Continue to summary** → **Create Token**
-6. **Nokopējiet Token** — tas būs redzams tikai vienreiz!
+1. Spiediet **Create** (vai **Create application**)
+2. Atlasiet **Pages** cilni
+3. Spiediet **Connect to Git**
 
-### 3. Pievienojiet GitHub Secrets
+### 3. Savienojiet GitHub
 
-1. Atveriet [github.com/kazdans/arhipro_zai/settings/secrets/actions](https://github.com/kazdans/arhipro_zai/settings/secrets/actions)
-2. Spiediet **New repository secret** divas reizes:
+1. Atlasiet **GitHub** kā Git provider
+2. Ja pirmo reizi — apstipriniet **Authorize Cloudflare**:
+   - Cloudflare lūgs piekļuvi GitHub
+   - Ieteicams izvēlēties **Only select repositories**
+   - Sarakstā atlasiet **`kazdans/arhipro_zai`**
+   - Spiediet **Install & Authorize**
+3. Cloudflare atgriezīsies un parādīs repo sarakstu
+4. Atlasiet **`arhipro_zai`** → spiediet **Begin setup**
 
-   | Name | Value |
-   | ---- | ----- |
-   | `CLOUDFLARE_ACCOUNT_ID` | Account ID no 1. soļa |
-   | `CLOUDFLARE_API_TOKEN` | API Token no 2. soļa |
+### 4. Konfigurējiet build iestatījumus
 
-3. Saglabājiet abus
+Aizpildiet formu **tieši šādi**:
 
-### 4. Pirmdeploys (automātisks)
+| Lauks                      | Vērtība                          |
+| -------------------------- | -------------------------------- |
+| **Project name**           | `arhitektons`                    |
+| **Production branch**      | `main`                           |
+| **Framework preset**       | `Astro`                          |
+| **Build command**          | `npm run build`                  |
+| **Build output directory** | `dist`                           |
+| **Root directory**         | (atstājiet tukšu)                |
 
-1. Veiciet jebkuru push uz `main` zaru (vai atkārtoti palaidiet workflow)
-2. Atveriet **Actions** cilni repo: [github.com/kazdans/arhipro_zai/actions](https://github.com/kazdans/arhipro_zai/actions)
-3. Pēdējais "Build & Deploy to Cloudflare" darbinājums vajadzētu būt ✓ zaļš
-4. Cloudflare Dashboard → **Workers & Pages** → redzēsiet `arhitektons` worker
-5. URL formātā: `https://arhitektons.<jūsu-subdomain>.workers.dev`
+**Cilne "Environment variables" (pēc izvēles, bet ieteicams):**
 
-### 5. (Pēc izvēles) Pielāgots domēns
+Pievienojiet vienu mainīgo (lai Astro zinātu galavērta domēnu priekš sitemap/SEO):
 
-Lai piesaistītu `arhitektons.lv` (vai citu domēnu):
+| Variable name | Value |
+| ------------- | ----- |
+| `NODE_VERSION` | `20` |
 
-1. Cloudflare Dashboard → **Workers & Pages** → `arhitektons`
-2. Cilne **Settings** → **Domains & Routes** → **Add Custom Domain**
-3. Ievadiet `arhitektons.lv` (vai `www.arhitektons.lv`)
-4. Ja domēns nav Cloudflare kontā, pievienojiet to najpirms sadaļā **Websites**
-5. Pēc DNS izmaiņām (līdz 24 stundām), vietne būs pieejama jaunajā domēnā
+> Padoms: ja vēlaties, lai Astro ģenerētu absolūtos URL, iestatiet arī `SITE_URL=https://arhitektons.lv` — bet pašreizējā konfigurācija strādā arī bez tā.
+
+5. Spiediet **Save and Deploy**
+
+### 5. Pagaidiet pirmo build
+
+- Cloudflare sāks build → varat sekot līdzi reālajā laikā logā
+- Parasti aizņem **1–2 minūtes**
+- Kad redzat **✓ Success (Production)** — vietne ir dzīva!
+
+### 6. Atveriet savu vietni
+
+Pēc veiksmīga deploy Cloudflare piešķirs URL formātā:
+
+```
+https://arhitektons.pages.dev
+```
+
+(Precīzais subdomēns atkarīgs no Project name — spiediet apakšā uz **Visit site**.)
 
 ---
 
-## 🔧 Pēc deploy — CMS piekļuves konfigurācija
+## 🔄 Turpmākie deploy (automātiski)
 
-1. Atveriet `https://<jūsu-workers-url>/admin/`
-2. Piesakieties ar GitHub kontu
+Tagad **katrs push uz `main` zaru** automātiski izraisīs jaunu deploy:
+- Veiciet izmaiņas GitHub (vai caur Sveltia CMS `/admin/`)
+- Cloudflare pats pamanīs, izveidos un publicēs ~1 minūtes laikā
+- Sekojiet līdzi **Deployments** cilnē projektā
+
+---
+
+## 🌐 Pielāgota domēna piesaiste (pēc izvēles)
+
+Lai vietne būtu pieejama `arhitektons.lv`:
+
+1. Projektā → **Custom domains** cilne → **Set up a custom domain**
+2. Ievadiet `arhitektons.lv` → **Continue**
+3. **Activate domain**:
+   - Ja domēns **jau ir Cloudflare kontā** → automātiski pievienos DNS ierakstus, pagaidiet ~minūti
+   - Ja domēns ir **citur** (piem., citā reģistrā) → Cloudflare parādīs DNS ierakstus, kas jāpievieno pie reģistra:
+     - Tips: `CNAME`
+     - Nosaukums: `@` (vai `www`)
+     - Mērķis: `arhitektons.pages.dev`
+4. Atkārtojiet priekš `www.arhitektons.lv`, ja vēlies arī to
+
+---
+
+## 📝 Sveltia CMS piekļuve pēc deploy
+
+1. Atveriet `https://arhitektons.pages.dev/admin/`
+2. Spiediet **Sign in with GitHub**
 3. Ja redzat kļūdu par piekļuves tiesībām:
-   - GitHub repo → **Settings** → **Collaborators** → pievienojiet savu e-pastu/kontu
-   - Vai nomainiet `public/admin/config.yml` → `backend.repo` uz privātu repo, ja vēlaties
+   - Atveriet [github.com/kazdans/arhipro_zai/settings/access](https://github.com/kazdans/arhipro_zai/settings/access)
+   - Pievienojiet lietotāju kā **Collaborator**
+   - Vai arī mainiet `public/admin/config.yml` `backend.repo` uz repo, kuram pieder
 
 ---
 
@@ -81,25 +125,47 @@ Lai piesaistītu `arhitektons.lv` (vai citu domēnu):
 
 | Simptoms | Risinājums |
 | -------- | ---------- |
-| Deploy neizdodas ar "Missing CLOUDFLARE_API_TOKEN" | Pārbaudiet, vai abi Secrets ir pievienoti (3. solis) |
-| Deploy neizdodas ar "Authentication failed" | Pārģenerējiet API Token un atjauniniet GitHub Secret |
-| Vietne parāda 404 Cloudflare URL | Pagaidiet 1-2 minūtes pēc deploy; pārbaudiet `_routes.json` `dist/` |
-| CMS neļauj pieslēgties | Pārbaudiet, ka GitHub lietotājs ir repo collaborators |
-| Bildes neparādās | Pārliecinieties, ka `public/uploads/` direktorija eksistē un ir commitēta |
+| Build neizdodas: "command not found: astro" | Pārbaudiet, vai Build command = `npm run build` (nevis `astro build`) |
+| Build neizdodas: "Dependencies lock file not found" | Pārliecinieties, ka `package-lock.json` ir commitēts (tas ir) |
+| Build veiksmīgs, bet vietne rāda tukšu lapu | Build output directory jābūt `dist` (nevis `public` vai `build`) |
+| CMS neparāda saturu | Pārbaudiet `/admin/config.yml` `backend.repo` — tam jābūt `kazdans/arhipro_zai` |
+| Cloudflare neredz repozitoriju | GitHub → Settings → Applications → Cloudflare → pievienojiet repo atļaujas |
+| Iepriekšējais URL vēl parāda veco saturu | Gaidiet 1–2 minūtes vai spiediet **Retry deployment** Cloudflare |
 
-### Workflow atkārtota palaišana
+### Build logu apskate
 
-Ja deploy neizdodas un jūs esat pievienojis Secrets, varat atkārtoti palaist bez jauna commita:
+1. Cloudflare Dashboard → Workers & Pages → `arhitektons`
+2. **Deployments** cilne → atzīmējiet jebkuru deploy
+3. Redzēsiet pilno build logu — noder, ja kas nestrādā
 
-1. GitHub repo → **Actions**
-2. Atzīmējiet neveiksmīgo darbinājumu
-3. Augšējā labā stūrī → **Re-run all jobs**
+### Deploy atkārtota palaišana
+
+1. **Deployments** cilne → atzīmējiet konkrēto commit
+2. **Retry deployment** — izveidos no jauna bez nepieciešamības mainīt kodu
 
 ---
 
 ## 📞 Atbalsts
 
-Lielāko daļu problēmu atrisina:
-- **Cloudflare dokumentācija**: [developers.cloudflare.com/workers](https://developers.cloudflare.com/workers/)
-- **Astro Cloudflare adaptējs**: [docs.astro.build/en/guides/integrations-guide/cloudflare](https://docs.astro.build/en/guides/integrations-guide/cloudflare/)
+- **Cloudflare Pages dokumentācija**: [developers.cloudflare.com/pages](https://developers.cloudflare.com/pages/)
+- **Astro + Cloudflare guide**: [docs.astro.build/en/guides/deploy/cloudflare](https://docs.astro.build/en/guides/deploy/cloudflare/)
 - **Sveltia CMS**: [github.com/sveltia/sveltia-cms](https://github.com/sveltia/sveltia-cms)
+
+---
+
+## 📌 Īsumā (vienā ekrānā)
+
+```
+Cloudflare Dashboard
+  → Workers & Pages
+    → Create → Pages → Connect to Git
+      → GitHub → Authorize → atlasiet "arhipro_zai"
+        → Begin setup
+          - Project name:         arhitektons
+          - Production branch:    main
+          - Framework preset:     Astro
+          - Build command:        npm run build
+          - Build output:         dist
+        → Save and Deploy
+          → Pagaidiet 1–2 minūtes → vietne dzīva uz *.pages.dev
+```

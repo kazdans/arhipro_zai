@@ -1,18 +1,14 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
+// Vietne ir pilnībā statiska — tāpēc nav vajadzīgs SSR adapteris.
+// Cloudflare Pages (caur Git integrāciju) apkalpo statiskos failus ātri un vienkārši.
+// Ja nākotnē vajadzīga servera loģika (forma, API), var pievienot @astrojs/cloudflare adapteri.
 export default defineConfig({
   site: 'https://arhitektons.lv',
   output: 'static',
-  adapter: cloudflare({
-    imageService: 'compile',
-    platformProxy: {
-      enabled: true,
-    },
-  }),
   integrations: [
     sitemap({
       i18n: {
